@@ -1,0 +1,19 @@
+{
+  "name": "polymer-finance",
+  "version": "0.0.1",
+  "description": "A set of polymer components to use in finance applications",
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [
+    "finance",
+    "polymer"
+  ],
+	"author": [
+		"Nikos katsikanis <nkatsikanis@gmail.com>"
+	],
+
+  "license": "ISC",
+  "bugs": {
+  }
+}
