@@ -3,8 +3,27 @@
 
 <polymer-element name="my-vanilla-option.html" noscript>
   <template>
-    <span>I'm <b>my-element</b>. This is my Shadow DOM.</span>
-    <core-ajax url="http://example.com/json" auto response="{{resp}}"></core-ajax>
-    <textarea value="{{resp}}"></textarea>
+    <form>
+      <div>
+        <label for="notionalAmount">Notional Amount</label>
+        <input name="notionalAmount" id="notionalAmount">
+      </div>
+      <div>
+        <label for="strikeRate">Strike Rate</label>
+        <input name="strikeRate" type="number" id="strikeRate">
+      </div>
+      <div>
+        <label for="expiryDate">Expiry Date</label>
+        <input name="expiryDate" type="date" id="expiryDate">
+      </div>
+      <div>
+        <label for="counterparty">Counterparty</label>
+        <input name="counterparty"  id="counterparty">
+      </div>
+      <div>
+        <label for="isCall">Call or Put</label>
+        <input name="isCall"  id="isCall">
+      </div>
+    </form>
   </template>
 </polymer-element>
