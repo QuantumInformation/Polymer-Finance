@@ -1,29 +1,49 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/core-ajax/core-ajax.html">
 
-<polymer-element name="my-vanilla-option.html" noscript>
+
+<polymer-element name="my-vanilla-option"  attributes="vanillaOption">
+
+  <script>
+
+    Polymer('my-vanilla-option', {
+
+      publish: {
+
+        vanillaOption: {
+          strikeRate: 1.000,
+          notionalAmount: 1000,
+          expiryDate: "2015/04/04"
+        }
+      },
+      // Fires when an instance of the element is created
+      created: function () {
+      }
+    });
+  </script>
   <template>
     <form>
       <div>
         <label for="notionalAmount">Notional Amount</label>
-        <input name="notionalAmount" id="notionalAmount">
+        <input name="notionalAmount" id="notionalAmount" value="{{vanillaOption.notionalAmount}}">
       </div>
       <div>
         <label for="strikeRate">Strike Rate</label>
-        <input name="strikeRate" type="number" id="strikeRate">
+        <input name="strikeRate" type="number" id="strikeRate" value="{{vanillaOption.strikeRate}}">
       </div>
       <div>
         <label for="expiryDate">Expiry Date</label>
-        <input name="expiryDate" type="date" id="expiryDate">
+        <input name="expiryDate" type="date" id="expiryDate" value="{{vanillaOption.expiryDate}}">
       </div>
       <div>
         <label for="counterparty">Counterparty</label>
-        <input name="counterparty"  id="counterparty">
+        <input name="counterparty" id="counterparty">
       </div>
       <div>
         <label for="isCall">Call or Put</label>
-        <input name="isCall"  id="isCall">
+        <input name="isCall" id="isCall">
       </div>
     </form>
+    <button>Submit</button>
   </template>
 </polymer-element>
