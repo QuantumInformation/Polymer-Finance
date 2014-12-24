@@ -1,5 +1,6 @@
 Polymer Finance
-================
+===============
+
 A set of polymer components to use in finance applications
 
 ##Options trading application (demo.html)
@@ -11,3 +12,5 @@ then will populate fields and resolve promise when editing is done.
 
 ###Money input
 Extends useful behaviour over an input to work with money
+
+
