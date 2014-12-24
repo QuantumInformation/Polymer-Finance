@@ -1,12 +1,50 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
-<polymer-element name="my-money-input" noscript>
+<polymer-element name="my-money-input">
   <script>
     Polymer('my-money-input', {
 
+
+      KEYS: {
+        BACKSPACE: 8,
+        TAB: 9,
+        RETURN: 13,
+        ESC: 27,
+        SPACE: 32,
+        LEFT: 37,
+        UP: 38,
+        RIGHT: 39,
+        DOWN: 40,
+        DELETE: 46,
+        HOME: 36,
+        END: 35,
+        PAGEUP: 33,
+        PAGEDOWN: 34,
+        INSERT: 45,
+        ZERO: 48,
+        ONE: 49,
+        TWO: 50,
+        A: 65,
+        B: 68,
+        K: 75,
+        L: 76,
+        M: 77,
+        P: 80,
+        Q: 81,
+        TILDA: 192
+      },
+
+      moneyValue: 0, //init value to 0
+      maxValue: 99999999999.9999,
+      maxValueString: "99,999,999,999.9999",
+      maxPrecision: 4,
+
+
       // Fires when an instance of the element is created
       created: function () {
-      },
+      }
+      ,
+
 
       /**
        * @param string This is an arbritary string from an input that could contain anything, ie from a key press or copy paste/
@@ -20,64 +58,66 @@
 
         //the edge case of 0 only occurs if they enter no numbers
         return value !== '' ? parseFloat(value) : '';
-      },
+      }
+      ,
 
       // we listen to keyboard inputs to multiple amounts (this makes it more simple)
       onKeyup: function (evt) {
-        var inputVal = element.val();
 
         //edge case
-        if (inputVal === '') {
+        if (this.moneyValue === '') {
           return;
         }
 
-        if (evt.keyCode == 75) {
+        if (evt.keyCode === this.KEYS.K) {
 
-          inputVal = convertInputStringToFloat(inputVal);
-          var parsedVal = parseFloat(inputVal);
+          this.this.moneyValue = this.convertInputStringToFloat(this.moneyValue);
+          var parsedVal = parseFloat(this.moneyValue);
           var final = parsedVal * 1000;
-          if (final > scope.money.maxValue) {
-            element.val(scope.money.maxValueString);
+          if (final > this.maxValue) {
+            this.moneyValue = this.maxValueString;
           }
           else {
-            element.val(addCommas(final));
+            this.moneyValue = this.addCommas(final);
           }
         }
 
-        if (evt.keyCode == 77) {
-          inputVal = convertInputStringToFloat(inputVal);
-          parsedVal = parseFloat(inputVal);
+        if (evt.keyCode === this.KEYS.M) {
+          this.moneyValue = this.convertInputStringToFloat(this.moneyValue);
+          parsedVal = parseFloat(this.moneyValue);
           final = parsedVal * 1000000;
-          if (final > scope.money.maxValue) {
-            element.val(scope.money.maxValueString);
+          if (final > this.maxValue) {
+            this.moneyValue = this.maxValueString;
           }
           else {
-            element.val(addCommas(final));
+            this.moneyValue = this.addCommas(final);
           }
         }
 
-        if (evt.keyCode == 66) {
-          inputVal = convertInputStringToFloat(inputVal);
-          parsedVal = parseFloat(inputVal);
+        if (evt.keyCode === this.KEYS.B) {
+          this.moneyValue = this.convertInputStringToFloat(this.moneyValue);
+          parsedVal = parseFloat(this.moneyValue);
           final = parsedVal * 1000000000;
-          if (final > scope.money.maxValue) {
-            element.val(scope.money.maxValueString);
+          if (final > this.maxValue) {
+            this.moneyValue = this.maxValueString;
           }
           else {
-            element.val(addCommas(final));
+            this.moneyValue = this.addCommas(final);
           }
         }
-      },
+      }
+      ,
 
       //we perform some validation after the user has finished inputing a value
       onBlur: function (evt) {
 
-        var inputVal = convertInputStringToFloat(element.val());
+        var inputVal = this.convertInputStringToFloat(this.moneyValue);
         parsed = parseFloat(inputVal).toString();
         if (parsed !== "NaN") {
-          element.val(addCommas(parsed));
+          this.moneyValue = this.addCommas(parsed);
         }
-      },
+      }
+      ,
 
       /**
        * Adds commas to integer part of input string
@@ -117,10 +157,11 @@
         }
         var res = intPart + decPart;
         return res;
-      },
+      }
+      ,
 
       testForOverPrecision: function (numericVal) {
-        return (numericVal.toString().length + 1) > scope.money.maxPrecision;
+        return (numericVal.toString().length + 1) > this.maxPrecision;
 
         //takes a string instead of a nunmber, the former seems more elegant/safe
         //	if (numericVal.replace(/[^1-9]/g, "").length > 10) {
@@ -129,6 +170,6 @@
     })
   </script>
   <template>
-    <input id="moneyInput"  on-keypress="{{onKeyup}}" on-blur="{{onBlur}}">
+    <input id="moneyInput" on-keypress="{{onKeyup}}" on-blur="{{onBlur}}" value="{{moneyValue}}">
   </template>
 </polymer-element>
