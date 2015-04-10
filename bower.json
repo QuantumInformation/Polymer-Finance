@@ -24,8 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.5.2",
-    "d3": "~3.5.2"
-  },
-  "devDependencies": {}
+    "polymer": "Polymer/polymer#^0.8.0-rc.2",
+    "d3": "~3.5.5"
+  }
 }

@@ -1,6 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
-<polymer-element name="my-money-input">
+<dom-module id="my-money-input">
   <script>
     Polymer('my-money-input', {
 
@@ -41,7 +41,9 @@
 
 
       // Fires when an instance of the element is created
-      created: function () {
+
+
+      created: function (h) {
       }
       ,
 
@@ -172,4 +174,4 @@
   <template>
     <input id="moneyInput" on-keypress="{{onKeyup}}" on-blur="{{onBlur}}" value="{{moneyValue}}">
   </template>
-</polymer-element>
+</dom-module>

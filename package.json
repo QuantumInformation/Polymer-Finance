@@ -9,11 +9,9 @@
     "finance",
     "polymer"
   ],
-	"author": [
-		"Nikos katsikanis <nkatsikanis@gmail.com>"
-	],
-
+  "author": [
+    "Nikos katsikanis <nkatsikanis@gmail.com>"
+  ],
   "license": "ISC",
-  "bugs": {
-  }
+  "bugs": {}
 }
