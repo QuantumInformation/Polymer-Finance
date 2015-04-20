@@ -1,26 +1,10 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="my-money-input.html">
+<link rel="import" href="money-input.html">
 
 
-<dom-module id="my-vanilla-option"  attributes="vanillaOption">
+<dom-module id="vanilla-option"  attributes="vanillaOption">
 
-  <script>
 
-    Polymer( {is:"my-vanilla-option",
-
-      publish: {
-
-        vanillaOption: {
-          strikeRate: 1.000,
-          notionalAmount: 1000,
-          expiryDate: "2015/04/04"
-        }
-      },
-      // Fires when an instance of the element is created
-      created: function () {
-      }
-    });
-  </script>
   <template>
     <form>
       <div>
@@ -46,4 +30,21 @@
     </form>
     <button>Submit</button>
   </template>
+  <script>
+
+    Polymer( {is:"vanilla-option",
+
+      publish: {
+
+        vanillaOption: {
+          strikeRate: 1.000,
+          notionalAmount: 1000,
+          expiryDate: "2015/04/04"
+        }
+      },
+      // Fires when an instance of the element is created
+      created: function () {
+      }
+    });
+  </script>
 </dom-module>

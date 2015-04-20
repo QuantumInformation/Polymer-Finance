@@ -1,7 +1,8 @@
 Polymer Finance
 ===============
 
-A set of polymer components to use in finance applications
+A set of polymer components to use in finance applications. I have deliberately kept styling to a minimum so you can 
+use your own styles. I am only focusing on functionality.
 
 ##Options trading application (demo.html)
 This is a demo of the various components working together in a fictitious financial trading platform
