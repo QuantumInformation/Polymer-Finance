@@ -2,46 +2,52 @@
 
 <dom-module id="money-input">
   <template>
-    <input id="moneyInput" on-keypress="onKeyup" on-blur="onBlur" value="money-value">
+    <input id="moneyInput" on-keypress="onKeyup" on-blur="onBlur" value="{{moneyValue}}">
   </template>
   <script>
     Polymer({
       is: 'money-input',
       properties: {
         moneyValue: {
-          type: Number,
-          value: 0
+          type: String,
+          value: "0",
+          notify:true
         },
         maxValue: 99999999999.9999,
         maxValueString: "99,999,999,999.9999",
         maxPrecision: 4,
         KEYS: {
-          BACKSPACE: 8,
-          TAB: 9,
-          RETURN: 13,
-          ESC: 27,
-          SPACE: 32,
-          LEFT: 37,
-          UP: 38,
-          RIGHT: 39,
-          DOWN: 40,
-          DELETE: 46,
-          HOME: 36,
-          END: 35,
-          PAGEUP: 33,
-          PAGEDOWN: 34,
-          INSERT: 45,
-          ZERO: 48,
-          ONE: 49,
-          TWO: 50,
-          A: 65,
-          B: 68,
-          K: 75,
-          L: 76,
-          M: 77,
-          P: 80,
-          Q: 81,
-          TILDA: 192
+          type: Object,
+          value: {
+
+            BACKSPACE: 8,
+            TAB: 9,
+            RETURN: 13,
+            ESC: 27,
+            SPACE: 32,
+            LEFT: 37,
+            UP: 38,
+            RIGHT: 39,
+            DOWN: 40,
+            DELETE: 46,
+            HOME: 36,
+            END: 35,
+            PAGEUP: 33,
+            PAGEDOWN: 34,
+            INSERT: 45,
+            ZERO: 48,
+            ONE: 49,
+            TWO: 50,
+            A: 65,
+            B: 68,
+            K: 75,
+            L: 76,
+            M: 77,
+            P: 80,
+            Q: 81,
+            TILDA: 192
+
+          }
         }
       },
 
