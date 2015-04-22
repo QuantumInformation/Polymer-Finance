@@ -2,7 +2,7 @@
 
 <dom-module id="money-input">
   <template>
-    <input id="moneyInput" on-keypress="onKeyup" on-blur="onBlur" value="{{moneyValue}}">
+    <input id="moneyInput" on-keypress="onKeyup" on-blur="onBlur" value="{{moneyValue::change}}">
   </template>
   <script>
     Polymer({
