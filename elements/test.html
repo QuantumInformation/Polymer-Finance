@@ -1,0 +1,33 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+<dom-module id="hloc-chart">
+  <template>
+    <button></button>
+    <svg height="100" width="100">
+      <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+    </svg>
+  </template>
+  <script>
+
+    /**
+     * The purpose of this is to see how outside forces can interaction with a polymer element
+     */
+    Polymer({
+        is: "outside-test",
+
+        onClick: function () {
+          this.showAlert();
+        },
+        animateCircle: function () {
+        },
+        showAlert: function () {
+          alert("wow this component showed an alert")
+        }
+
+      }
+    )
+
+  </script>
+
+</dom-module>

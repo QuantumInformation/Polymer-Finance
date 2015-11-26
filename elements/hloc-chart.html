@@ -1,7 +1,9 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link href="../node_modules/nvd3/build/nv.d3.css" rel="stylesheet">
+
 <script src="../node_modules/d3/d3.js"></script>
 <script src="../node_modules/nvd3/build/nv.d3.js"></script>
-<link rel="import" href="data-fetch.html">
+<link rel="import" href="../api/data-fetch.html">
 
 
 <dom-module id="hloc-chart">
@@ -14,23 +16,26 @@
     Polymer({
         is: "hloc-chart",
 
-
         created: function () {
           this.renderData(getData());
         },
 
         renderData: function (data) {
-          nv.addGraph(function() {
+          nv.addGraph(function () {
             var chart = nv.models.ohlcBarChart()
-              .x(function(d) { return d['date'] })
-              .y(function(d) { return d['close'] })
+              .x(function (d) {
+                return d['date']
+              })
+              .y(function (d) {
+                return d['close']
+              })
               .duration(250)
               .margin({left: 75, bottom: 50});
 
             // chart sub-models (ie. xAxis, yAxis, etc) when accessed directly, return themselves, not the parent chart, so need to chain separately
             chart.xAxis
               .axisLabel("Dates")
-              .tickFormat(function(d) {
+              .tickFormat(function (d) {
                 // I didn't feel like changing all the above date values
                 // so I hack it to make each value fall on a different date
                 return d3.time.format('%x')(new Date(new Date() - (20000 * 86400000) + (d * 86400000)));
@@ -38,8 +43,9 @@
 
             chart.yAxis
               .axisLabel('Stock Price')
-              .tickFormat(function(d,i){ return '$' + d3.format(',.1f')(d); });
-
+              .tickFormat(function (d, i) {
+                return '$' + d3.format(',.1f')(d);
+              });
 
 
             d3.select("#chart1 svg")
@@ -54,7 +60,5 @@
 
       }
     )
-
   </script>
-
 </dom-module>
