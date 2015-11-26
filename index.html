@@ -2,10 +2,16 @@
 <html>
 <head>
   <!-- 1. Load platform support before any code that touches the DOM. -->
-  <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <!-- 2. Load the component using an HTML Import -->
+  <link rel="import" href="elements/vanilla-option.html">
+  <link rel="import" href="elements/hloc-chart.html">
+  <link rel="import" href="elements/data-fetch.html">
+
 </head>
 <body>
-
+<vanilla-option></vanilla-option>
+<br><br>
+<hloc-chart></hloc-chart>
 </body>
 </html>

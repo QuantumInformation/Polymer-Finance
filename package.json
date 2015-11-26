@@ -13,5 +13,10 @@
     "Nikos katsikanis <nkatsikanis@gmail.com>"
   ],
   "license": "ISC",
-  "bugs": {}
+  "bugs": {},
+  "devDependencies": {
+    "d3": "^3.5.9",
+    "nvd3": "^1.8.1",
+    "polymer": "^0.4.1"
+  }
 }

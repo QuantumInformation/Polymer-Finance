@@ -1,10 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="money-input.html">
 
-
 <dom-module id="vanilla-option"  attributes="vanillaOption">
-
-
   <template>
     <form>
       <div>
@@ -22,10 +19,18 @@
       <div>
         <label for="counterparty">Counterparty</label>
         <input name="counterparty" id="counterparty">
+        <select>
+          <li>HSBC</li>
+          <li>BARCLAYS</li>
+        </select>
       </div>
       <div>
         <label for="isCall">Call or Put</label>
         <input name="isCall" id="isCall">
+      </div>
+      <div>
+        <label for="banksidePremium">Expiry Date</label>
+        <money-input name="banksidePremium" id="banksidePremium" value="{{vanillaOption.banksidePremium}}"></money-input>
       </div>
     </form>
     <button>Submit</button>
@@ -33,13 +38,18 @@
   <script>
 
     Polymer( {is:"vanilla-option",
-
       publish: {
-
         vanillaOption: {
-          strikeRate: 1.000,
-          notionalAmount: 1000,
-          expiryDate: "2015/04/04"
+          strikeRate: 1.000, //strike rate of the navilla FX option
+          notionalAmount: 1000, // The amount of value
+          expiryDate: "2015/04/04",
+          counterparty: "HSBC",
+          banksidePremium:1000,
+          isCall:false
+          //todo
+          /* value: black scholes formaula
+
+           */
         }
       },
       // Fires when an instance of the element is created
